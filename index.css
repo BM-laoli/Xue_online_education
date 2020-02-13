@@ -1,0 +1,418 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+li {
+    list-style: none;
+    /* 注意清除li */
+}
+
+a {
+    text-decoration: none;
+}
+
+.f {
+    float: left;
+}
+
+.fr {
+    float: right;
+}
+
+.clearfix:before,
+.clearfix::after {
+    content: "";
+    display: table;
+}
+
+.clearfix:after {
+    clear: both;
+}
+
+.clearfix {
+    *zoom: 1;
+}
+
+
+/* 以上带clearfix代码是清除浮动用的 */
+
+
+/* 演示初始化代码 */
+
+
+/* 优化结构浮动样式 */
+
+
+/* 链接下划线 */
+
+
+/* 以上是初始化代码  */
+
+
+/* .header  */
+
+.w {
+    width: 1200px;
+    margin: auto;
+    /* background-color: saddlebrown; */
+}
+
+body {
+    background-color: #f3f5f7;
+}
+
+.header {
+    /* 这里注释掉的东西可以直接继承上面的w样式，所有直接在结构柱加上 */
+    /* width: 1200px; */
+    height: 42px;
+    /* margin: auto; */
+    /* background-color: darkolivegreen; */
+    /* 注意上线30左右auto */
+    margin: 30px auto;
+}
+
+.log {
+    margin-right: 60px;
+    /* 注意marign是盒子之间的距离 */
+}
+
+.nav ul li {
+    float: left;
+}
+
+.nav ul li a {
+    display: block;
+    height: 40px;
+    padding: 0 10px;
+    margin-right: 10px;
+    /* pading是黑子内容距离，可以随着里面的内容自动挤开盒子大小 */
+    line-height: 40px;
+    color: #050505;
+    font-size: 18px;
+    /* display:;a是block元素没有大小。但是要一行显示，与显示模式有关。；文字垂直居中，linke-heign:40 */
+}
+
+.nav ul li a:hover {
+    border-bottom: 2px solid #00a4ff;
+}
+
+.sercah {
+    margin-left: 70px;
+}
+
+.sercah input {
+    padding-left: 20px;
+    width: 340px;
+    /* 特别需要注意的是这里，由于pading设置了宽度，pading会撑大盒子，所以要给width减回去，故而这里的360-20=340 */
+    height: 38px;
+    border: 1px solid #00a4ff;
+    border-right: 0;
+    /* 注意这个是有问题的，用因为我们按钮旋转的是一个背景图，而不是图标，所以我们去掉rigth边框 */
+    color: #84898b;
+}
+
+.sercah button {
+    /* 需要注意的是这里也是需要加浮动的，因为行内块元素 （图片。表格 input）都会天生自带空隙 我们要去除他们*/
+    float: right;
+    width: 50px;
+    height: 40px;
+    /* 去除按钮的自带边框 */
+    border: none;
+    background: url(images/btn.png);
+}
+
+.user {
+    height: 40px;
+    line-height: 40px;
+    /* 这个line-heig只是让单行文本垂直居中 */
+    margin-left: 30px;
+    color: #666666;
+    font-size: 14px;
+}
+
+
+/* header_1 ending */
+
+
+/* banner_start */
+
+.banner {
+    position: relative;
+    /*这个postiron一开始是不用看的因为一开始设计的时候没有考虑到定位的效果*/
+    height: 420px;
+    background: #1c036c url(images/banner2.jpg) no-repeat top center;
+    /* 注意这里的背景图片的写法top center是定位 */
+}
+
+.subnav {
+    width: 150px;
+    height: 420px;
+    padding: 0 20px;
+    background-color: rgba(0, 0, 0, .3);
+}
+
+.subnav li a span {
+    float: right;
+}
+
+.subnav li {
+    height: 45px;
+    line-height: 45px;
+}
+
+.subnav li a {
+    color: #f3f5f7;
+    font-size: 14px;
+}
+
+.subnav li a:hover {
+    color: #00a4ff;
+    /* font-size: 14px; */
+}
+
+.banner .cricle {
+    position: absolute;
+    left: 50%;
+    margin-left: -35px;
+    bottom: 15px;
+    /* width: 70px; */
+    height: 13px;
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 7px;
+}
+
+.cricle li {
+    float: left;
+    /* 注意一些，定位和浮动要配合使用才能取得比较好的效果 */
+    background-color: #cff;
+    width: 8px;
+    height: 8px;
+    margin: 3px 3px;
+    /* 小圆角的显示效果 */
+    border-radius: 50%;
+    /* z-index: 5; */
+}
+
+.cricle .current {
+    background-color: yellow;
+}
+
+.coures {
+    float: right;
+    width: 228px;
+    height: 300px;
+    margin-top: 50px;
+    background-color: #f3f5f7;
+    /* 注意子盒子在父盒子里时，外面距margin引起的塌问题，而浮动就不会有这问题 */
+}
+
+.coures_hd {
+    height: 48px;
+    margin-bottom: 15px;
+    /* 注意一下，这里的margin-bottom是为了让下面的ul能和上面的hd分开明显一些 */
+    background-color: #9bceea;
+    font-size: 18px;
+    text-align: center;
+    line-height: 48px;
+    color: #f3f5f7;
+    font-weight: bold;
+    /* 文字加粗 */
+}
+
+.coures_bd {
+    /* 没有宽度的盒子，给padding不会撑开盒子 */
+    padding: 0 15px;
+}
+
+.coures_bd ul li {
+    height: 50px;
+    margin-top: 10px;
+    border-bottom: 1px solid #ccc;
+    /* 块级元素和父级一样高，继承 */
+}
+
+.coures_bd li h4 {
+    font-size: 14px;
+    color: #4e4e4e;
+}
+
+.coures_bd li p {
+    font-size: 12px;
+    color: #a5a5a5;
+}
+
+.coures_bd .all {
+    /* 注意a是行内元素么有大小 */
+    display: block;
+    margin-top: 10px;
+    height: 38px;
+    border: 1px solid #00a4ff;
+    font-size: 16px;
+    color: #ccc;
+    text-align: center;
+    /* 文字水平居中center，垂直居中_行高等于高 */
+    line-height: 38px;
+}
+
+.coures_bd .all:hover {
+    background-color: #00a4ff;
+    color: #f3f5f7;
+}
+
+
+/* banner_end */
+
+
+/* gods start */
+
+.gods {
+    height: 60px;
+    margin-top: 10px;
+    background-color: #fff;
+    box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, .3);
+    /* 注意这里有一些属性是可以继承的，font开头的lint开头的 colot也可以 */
+    line-height: 60px;
+    /* 继承lin-heig可以完成垂直居中 */
+}
+
+.gods h3 {
+    margin: 0 30px;
+    font-size: 16px;
+    color: #00a4ff;
+}
+
+.gods_item {
+    color: #ccc;
+}
+
+.gods_item a {
+    font-size: 16px;
+    color: #050505;
+    margin: 0 30px;
+}
+
+
+/* gods ending */
+
+.box {
+    /* height:; */
+    margin-top: 15px;
+}
+
+.box-hd {
+    height: 60px;
+    line-height: 60px;
+}
+
+.box-hd h3 {
+    float: left;
+    font-size: 20px;
+    color: #494949;
+    font-weight: 400;
+    /* 让粗体不加粗 */
+}
+
+.box-hd a {
+    float: right;
+    margin-right: 30px;
+    font-size: 12px;
+    color: #a5a5a5;
+}
+
+.box-bd {
+    /* 这个盒子我们不方便给高度，我们可能加一行或或者 */
+    /* 这个宽度一定要测量准确，因为平均分开，然后又有浮动，会掉下来 */
+}
+
+.box-bd li {
+    float: left;
+    width: 228px;
+    height: 270px;
+    margin-right: 15px;
+    margin-bottom: 15px;
+    background-color: #fff;
+    box-shadow: 2px 2px 2px rgba(0, 0, 0, .3);
+}
+
+.box-bd li:nth-child(5n) {
+    margin-right: 0px;
+}
+
+.box-bd li img {
+    width: 100%;
+    /* 注意一下这里的image写法，“你和父亲一样宽” */
+}
+
+.box-bd li h4 {
+    margin: 20px 20px;
+    font-size: 14px;
+    color: #050505;
+    font-weight: 400;
+}
+
+.box-bd li p {
+    margin: 0 20px;
+    font-size: 12px;
+    color: #999999;
+}
+
+.box-bd li span {
+    font-size: 12px;
+    color: orange;
+}
+
+
+/* footer :start */
+
+.footer {
+    height: 415px;
+    padding-top: 30px;
+    background-color: #fff;
+}
+
+.copyright {
+    float: left;
+}
+
+.copyright p {
+    font-size: 12px;
+    color: #666666;
+    margin: 20px 0 15px 0;
+}
+
+.app {
+    display: block;
+    /* 关于什么时候用快级元素？那就看给了大小之后它到底有么有大小 */
+    width: 118px;
+    height: 34px;
+    color: #00a4ff;
+    border: 1px solid #00a4ff;
+    text-align: center;
+    line-height: 34px;
+}
+
+.links {
+    float: right;
+}
+
+.links dl {
+    float: left;
+    margin-left: 100px;
+}
+
+.links dt {
+    height: 35px;
+    font-size: 16px;
+    color: #333333;
+    /*高度最安全。高度剩余法*/
+    /* //这里有个小技巧。我们不需要被magin或者paddin，文字默认与盒子左上角对齐，直接给盒子高度就行 */
+}
+
+.links dd a {
+    font-size: 12px;
+    color: #333333;
+}
+
+
+/* BM老李提示：特别要留心这里的东西。我们在做版权或者“更多”页面的时候最喜欢用自定义列表 */
